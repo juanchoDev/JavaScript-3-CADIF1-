@@ -1,0 +1,1 @@
+Uso de SweetAlert2 librería y diferencias con alert normales, funciones asincronas, setTimeout y setInterval.
