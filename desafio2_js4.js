@@ -270,8 +270,8 @@ function validateUser(user, pass) {
   /* Funcion para cerrar sesión */
 
   document.getElementById("signOffButton").addEventListener("click", () => {
-    localStorage.removeItem('usuarioLogueado');
-    window.location.href = "index.html";
+    localStorage.removeItem('usuarioLogueado'); 
+    location.reload();
   })
 
 
@@ -293,7 +293,20 @@ function validateUser(user, pass) {
       let auxUsuario = JSON.stringify(usuario);
       localStorage.setItem("usuarioRegistrado", auxUsuario);
       usuarios.push(JSON.parse(auxUsuario));
-      alert("¡Usuario registrado!")
+      
+      //Guarda el arreglo de usuarios en el almacenamiento local cada nuevo registro
+
+      localStorage.setItem('usuariosExistentes', JSON.stringify(usuarios));
+      alert("¡Usuario registrado!");
+  }
+}
+  
+
+window.onload = function() {
+    if (localStorage.getItem('usuariosExistentes')) {
+
+        // Recupera el arreglo de usuarios del almacenamiento local
+        usuarios = JSON.parse(localStorage.getItem('usuariosExistentes'));
     }
   }
 
