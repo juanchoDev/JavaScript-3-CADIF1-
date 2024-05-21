@@ -1,0 +1,271 @@
+/* Clases de cartas */
+i {
+  border-radius: 0.5em;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.tanjiro {
+  background-image: url(/images/tanjiro.png);
+}
+
+.nezuko {
+  background-image: url(/images/nezuko.png);
+}
+
+.tomioka {
+  background-image: url(/images/tomioka.png);
+}
+
+.inosuke {
+  background-image: url(/images/inosuke.png);
+}
+
+.tengen {
+  background-image: url(/images/tengen.png);
+}
+
+.tokito {
+  background-image: url(/images/tokito.png);
+}
+
+.zenitsu {
+  background-image: url(/images/zenitsu.png);
+}
+
+.muzan {
+  background-image: url(/images/muzan.png);
+}
+
+.rengoku {
+  background-image: url(/images/rengoku.png);
+}
+
+.userPanel {
+  display: flex;
+  justify-content: center;
+  width: 25.3vw;
+  gap: 5%;
+}
+.userPanel .user {
+  background-color: #F8F8F8;
+  width: 100%;
+}
+.userPanel .user .userData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5em;
+  height: 100%;
+  text-align: start;
+}
+.userPanel .user .userData h1 {
+  font-size: 0.8em;
+}
+.userPanel .user .userData P {
+  font-size: 0.75em;
+}
+.userPanel .logButtons {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.userPanel .logButtons .btn {
+  cursor: pointer;
+  padding: 1em;
+  border: none;
+  border-radius: 0.8em;
+}
+.userPanel .logButtons .btn ion-icon {
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+}
+.userPanel .logButtons .signInBtn {
+  background-color: green;
+}
+.userPanel .logButtons .signOffBtn {
+  background-color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .userPanel {
+    width: 97vw;
+    gap: 1em;
+  }
+  .userPanel .logButtons {
+    width: 25% !important;
+  }
+}
+* {
+  font-family: "Press Start 2P", system-ui;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #673AB7;
+}
+
+.wrapper, .userPanel .logButtons {
+  width: auto;
+  padding: 1.5em;
+  background-color: #f8f8f8;
+  border-radius: 0.8em;
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.3137254902);
+}
+
+.card, .view, .score, p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  height: 50vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5%;
+}
+.cards .card {
+  cursor: pointer;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.cards .card .view {
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  position: absolute;
+  background: #fff;
+  border-radius: 0.5em;
+  backface-visibility: hidden;
+  transition: transform 0.25s linear;
+  box-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 0.1254901961);
+}
+.cards .card ion-icon {
+  font-size: 2.5em;
+}
+.cards .card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5em;
+}
+
+.card.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-1em);
+  }
+  40% {
+    transform: translateX(1em);
+  }
+  60% {
+    transform: translateX(-0.5em);
+  }
+  80% {
+    transform: translateX(0.5em);
+  }
+}
+.card .back-view {
+  transform: rotateY(-180deg);
+}
+
+.card.flip .front-view {
+  transform: rotateY(180deg);
+}
+
+.card.flip .back-view {
+  transform: rotateY(0);
+}
+
+.score {
+  justify-content: space-between;
+  padding: 0 1em;
+  margin-bottom: 1em;
+  border-radius: 0.4em;
+  width: 100%;
+  height: 5vh;
+  background: #ffffff;
+  box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.062745098);
+}
+.score p {
+  font-size: 0.75em;
+  width: 30%;
+  padding-right: 1em;
+  border-right: 1px solid black;
+}
+.score p b {
+  font-weight: bold;
+}
+.score button {
+  cursor: pointer;
+  font-size: 0.75em;
+  width: auto;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: solid 3px #673AB7;
+  background: transparent;
+  transition: 0.3s ease;
+}
+.score button:hover {
+  color: #ffffff;
+  background-color: #673AB7;
+}
+
+::-moz-selection {
+  color: #673AB7;
+}
+
+::selection {
+  color: #673AB7;
+}
+
+.swal2-title {
+  font-size: 1em;
+}
+
+/* Media Query */
+@media screen and (max-width: 530px) {
+  .wrapper, .userPanel .logButtons {
+    width: 98vw;
+  }
+  .score p {
+    font-size: 0.6em;
+  }
+  .score button {
+    font-size: 0.6em;
+  }
+  .swal2-title {
+    font-size: 0.5em;
+  }
+}/*# sourceMappingURL=generalStyles.css.map */

@@ -1,0 +1,72 @@
+.userPanel {
+    display: flex;
+    justify-content: center;
+    width: 25.3vw;
+    gap: 5%;
+
+    .user {
+        background-color: #F8F8F8;
+        width: 100%;
+        .userData {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 0.5em;
+            height: 100%;
+            text-align: start;
+    
+            h1 {
+                font-size: 0.8em;
+            }
+            
+            P {
+                font-size: 0.75em;
+            }
+        }
+    }
+
+    .logButtons {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        @extend .wrapper;
+
+        .btn {
+            cursor: pointer;
+            padding: 1em;
+            border: none;
+            border-radius: 0.8em;
+                ion-icon {
+                    font-size: 2em;
+                    color: white;
+                    font-weight: bold;
+                }
+        }
+
+        .signInBtn {
+            background-color: green;
+        }
+        
+        .signOffBtn {
+            background-color: red;
+        }
+    }
+}
+
+@media screen and (max-width:768px)  {
+    .userPanel {
+        width: 97vw;
+        gap: 1em;
+
+        .logButtons {
+            width: 25% !important;
+        }
+    }
+
+
+    
+}
