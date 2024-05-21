@@ -20,7 +20,8 @@ body {
     gap: 1em;
     align-items: center;
     min-height: 100vh;
-    background-color: map-get($colors, 'purple');
+    background: rgb(147,58,183);
+    background: linear-gradient(90deg, rgba(147,58,183,1) 0%, rgba(103,58,183,1) 50%, rgba(0,21,117,1) 100%);
 }
 
 .wrapper {

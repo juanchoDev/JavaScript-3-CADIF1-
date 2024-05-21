@@ -12,6 +12,9 @@ let isPlaying = false;
 let cardOne, cardTwo, timer;
 
 function initTimer() {
+  if (timeLeft == 60) {
+    return clearInterval(timer);
+  }
     timeLeft++;
     timeTag.innerText = timeLeft;
 }
@@ -53,6 +56,7 @@ function matchCards(icon1, icon2) {
             height: '10vh',
           });
         matchedCards++;
+        document.getElementById("matchedCards").innerText = matchedCards;
             if (matchedCards == 8 && timeLeft > 0){
                 saveGame(timeLeft, flips)
                 Swal.fire({
@@ -142,7 +146,7 @@ class Usuario {
     static agregarUsuario() {
         let usuario = new Usuario(
             document.registerUser.email.value,
-            0, // bestTime
+            86400, // bestTime
             0, // bestFlips
             0, // lastTime
             0 // lastFlips
@@ -182,7 +186,6 @@ window.onload = function() {
     document.getElementById('userLastTime').innerText = usuarioLogueado.lastTime;
  }
 
-
 /* Validar usuario existente  */
 
 function validateUser(email) {
@@ -209,7 +212,7 @@ function validateUser(email) {
   // Función para mostrar el modal
   async function mostrarModal() {
     const { value: formUsuario } = await Swal.fire({
-      title: '¿Cual es tu nombre?',
+      title: '¿Cual es tu correo?',
       html: `
       <form class="form-inline col-sm-12 mt-3" name="registerUser">
         <input required class="form-control col-sm-7" id="UserName" name="email" type="text" autofocus style="color: #2e7d32; padding: 1em;">
@@ -231,9 +234,8 @@ function validateUser(email) {
         ];
       }
     });
-  
-    if (formUsuario && formUsuario[0] !== '' && formUsuario[1] !== '') {
-      
+    
+    if (formUsuario && formUsuario[0] !== '') { 
       Swal.fire({
         title: '¡A Jugar!',
         icon: 'success',
